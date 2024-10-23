@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const userRepository = require('../repositories/userRepository');
 
-class UserService {
+class userService {
     async register(username, password) {
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = userRepository.createUser({username, password: hashedPassword});
@@ -18,4 +18,4 @@ class UserService {
     }
 }
 
-module.exports = UserService();
+module.exports = new userService();

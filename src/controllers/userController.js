@@ -1,8 +1,8 @@
-const express = requiere('express');
+const express = require('express');
 const router = express.Router();
 const userService = require('../services/userService');
 
-router.post('/register', async (res, res) => {
+router.post('/register', async (req, res) => {
     try {
         const {username, password} = req.body;
         const user = await userService.register(username, password);
@@ -11,7 +11,7 @@ router.post('/register', async (res, res) => {
         res.status(400).json({error: error.message})
     }
 });
-router.post('/login', async (res, res) => {
+router.post('/login', async (req, res) => {
     try {
         const {username, password} = req.body;
         const token = await userService.login(username, password);
@@ -21,7 +21,7 @@ router.post('/login', async (res, res) => {
     }
 });
 
-router.get('/users', async (res, res) => {
+router.get('/users', async (req, res) => {
     try {
         const {username, password} = req.body;
         const users = await userService.getUsers();

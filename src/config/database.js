@@ -11,4 +11,4 @@ sequelize.authenticate()
         return sequelize.sync();
     });
 
-model.exports = sequelize;
+module.exports = sequelize;

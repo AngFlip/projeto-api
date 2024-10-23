@@ -18,4 +18,4 @@ const User = sequelizeConfig.define('Users', {
     }
 })
 
-module.exports = UserRepository();
+module.exports = User;
