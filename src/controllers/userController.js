@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userService = require('../services/userService');
+const authenticateToken = require('../middleware/auth');
 
 router.post('/register', async (req, res) => {
     try {
@@ -21,7 +22,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.get('/users', async (req, res) => {
+router.get('/users', authenticateToken,  async (req, res) => {
     try {
         const {username, password} = req.body;
         const users = await userService.getUsers();
