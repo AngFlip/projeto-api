@@ -7,7 +7,7 @@ class userRepository {
     }
 
     async findByUserName(username) {
-        return await User.find({where: {username}});
+        return await User.findOne({where: {username}});
     }
 
     async findAll() {
